@@ -6,6 +6,8 @@ class DatabaseManager:
         self.connection_string = db_url
         self.engine = create_engine(self.connection_string)
         self.metadata_obj = MetaData()
+        # reflect the database schema into the SQLAlchemy object
+        self.reflect_schema()
         print("The db engine was created.")
 
     def reflect_schema(self):

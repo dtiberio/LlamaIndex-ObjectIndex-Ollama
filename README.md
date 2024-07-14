@@ -1,5 +1,5 @@
 # LlamaIndex-ObjectIndex-Ollama
- Tutorial on LlamaIndex-ObjectIndex-Ollama
+ Tutorial on using LlamaIndex-ObjectIndex-Ollama
  Tested on LlamaIndex 0.10.55  
 
 ## LlamaIndexManager Class  
@@ -96,15 +96,15 @@ def _create_query_engine(self):
 
 ### Usage
 
-To use the `LlamaIndexManager`, initialize it with the required parameters and call the `get_query_engine` method to obtain the query engine for executing queries.
+To use the `LlamaIndexManager`, initialize it with the required parameters and then call the `get_query_engine` method to obtain the query engine for executing queries.
 
 ```python
 # Initialize LlamaIndexManager
 index_manager = LlamaIndexManager(
     db_manager=your_db_manager_instance,
-    ollama_embedding_model='your_embedding_model',
-    ollama_base_url='http://localhost:port',
-    ollama_llm_model='your_llm_model'
+    ollama_embedding_model='the_name_of_your_embedding_model',
+    ollama_base_url='http://servername:port',
+    ollama_llm_model='the_name_of_your_llm_model'
 )
 
 # Get query engine
@@ -133,6 +133,7 @@ obj_index = ObjectIndex.from_persist_dir(
  # Running the Ollama local server on your PC
 1. Install Ollama  
 https://ollama.com/download  
+This code requires Ollama running on your local PC, if you wish to use another LLM API, then you need to change the code.  
   
 2. Pull these two models, run these commands in the command line  
 ollama pull lamma3  
@@ -157,3 +158,7 @@ python main_svs.py
 7. Tested on  
 Windows 11 Pro  
 Python 3.11  
+
+# Chinook database
+ Used the Chinook database for testing:  
+ https://github.com/lerocha/chinook-database

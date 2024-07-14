@@ -62,6 +62,7 @@ class LlamaIndexManager:
             # table_node_mapping needs to be recalculated, assumes there's been no changes to the database
             # if the database has changed, then delete the file "self.persist_dir\index_store.json" to force a new index
             table_node_mapping = SQLTableNodeMapping(self.sql_database)
+            # reload obj_index from disk
             obj_index = ObjectIndex.from_persist_dir(
             persist_dir = self.persist_dir,
             object_node_mapping = table_node_mapping  # without this, an error will be thrown
@@ -78,6 +79,7 @@ class LlamaIndexManager:
             )
 
             # save obj_index to disk
+            # creates several .json files inside the folder self.persist_dir
             obj_index.persist(persist_dir=self.persist_dir)
         
         return obj_index

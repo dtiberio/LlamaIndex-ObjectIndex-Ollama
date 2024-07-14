@@ -5,6 +5,7 @@ import time
 
 # Start here
 print("Welcome! Let's get started...")
+print("Reminder: 'ollama server' must be running in the background...")
 
 ### Start the Database ###
 # Record the start time
@@ -25,10 +26,11 @@ print(f"It took: {elapsed_time:.4f} seconds to get the Database started.\n")
 # ollama_embedding_model, ollama_base_url, ollama_llm_model: pulled from cf_settings.py
 print("Creating the LLM Query Engine.")
 llama_index_manager = LlamaIndexManager(
-    db_manager,
-    ollama_embedding_model,
-    ollama_base_url,
-    ollama_llm_model
+    db_manager = db_manager,
+    ollama_embedding_model = ollama_embedding_model,
+    ollama_base_url = ollama_base_url,
+    ollama_llm_model = ollama_llm_model,
+    dialect = dialect
 )
 
 query_engine = llama_index_manager.get_query_engine()
@@ -41,6 +43,7 @@ elapsed_time = llm_end_time - db_end_time
 print(f"It took: {elapsed_time:.4f} seconds to get the LLM Query engine started.\n")
 
 ### testing the LLM Query engine ###
+
 print("How many tables are there in the database?")
 response = query_engine.query("how many tables are there in the database")
 print(response.response)

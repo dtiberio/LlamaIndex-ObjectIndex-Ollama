@@ -15,9 +15,11 @@ import os
 class LlamaIndexManager:
     def __init__(self, db_manager: DatabaseManager,
                  ollama_embedding_model, ollama_base_url, ollama_llm_model,
+                 dialect,
                  persist_dir="./svs_storage"):
         
         self.db_manager = db_manager
+        self.dialect = dialect
         self.persist_dir = persist_dir
         # Ollama server for embeddings
         self.embedding_model = OllamaEmbedding(
@@ -89,7 +91,7 @@ class LlamaIndexManager:
             self.sql_database,
             self.obj_index.as_retriever(similarity_top_k=1),
             llm=self.llm_model,
-            dialect="mssql"
+            dialect=self.dialect
         )
         return query_engine
 

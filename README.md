@@ -1,10 +1,10 @@
 # LlamaIndex-ObjectIndex-Ollama
- Tutorial on using LlamaIndex-ObjectIndex-Ollama
+ Tutorial on using LlamaIndex-ObjectIndex-Ollama  
  Tested on LlamaIndex 0.10.55  
 
 ## LlamaIndexManager Class  
 Uses the LlamaIndex ObjectIndex class to create an index of all the tables in an existing database.  
-Then, persists the index to the local disk, to avoid having to rebuild the embeddings every time that the program runs. 
+Then, persists the index to the local disk, to avoid having to rebuild the embeddings every time that the program runs.  
 Reference:  
 https://docs.llamaindex.ai/en/stable/examples/objects/object_index/  
 

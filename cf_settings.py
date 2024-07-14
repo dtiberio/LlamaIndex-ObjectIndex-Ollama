@@ -1,26 +1,29 @@
 # This file includes all the configuration settings
 
-# Example with the MS SQL Server database connection parameters
+# Example database connection parameters
+# select only one of db_url connection strings
 
 db_server = 'localhost'
 mssql_db_port = 1433
 mysql_db_port = 3306
 db_database = 'chinook'
-db_username = 'sa'
+db_username = 'root'
 db_password = 'root'
 
 # For MS SQL Server
 # for MS SQL Server requires: pip install pyodbc
-db_url = f'mssql+pyodbc://{db_username}:{db_password}@{db_server}:{mssql_db_port}/{db_database}?driver=ODBC+Driver+17+for+SQL+Server'
+# db_url = f'mssql+pyodbc://{db_username}:{db_password}@{db_server}:{mssql_db_port}/{db_database}?driver=ODBC+Driver+17+for+SQL+Server'
+# dialect = 'mssql'
 
 # For MySQL or MariaDB
 # for MySQL requires: pip install pymysql
 # db_url = f'mysql+pymysql://{db_username}:{db_password}@{db_server}:{mysql_db_port}/{db_database}'
+# dialect = 'mysql'
 
 # For SQLite
 path_to_db_file = 'db/Chinook_Sqlite.sqlite'
-# db_url = f'sqlite:///{path_to_db_file}'
-
+db_url = f'sqlite:///{path_to_db_file}'
+dialect = 'sqlite'
 
 # Define the Ollama connection parameters
 ollama_llm_model = "llama3"
